@@ -1,0 +1,90 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "vendor_amlogic_common_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    //   SPDX-license-identifier-BSD
+    //   SPDX-license-identifier-BSL-1.0
+    //   SPDX-license-identifier-MIT
+    //   legacy_by_exception_only
+    //   legacy_notice
+    default_applicable_licenses: ["vendor_amlogic_common_license"],
+}
+
+bootstrap_go_package {
+    name: "soong-tdk",
+    pkgPath: "android/soong/vendor/amlogic/tdk",
+    deps: [
+        "blueprint",
+        "blueprint-pathtools",
+        "soong",
+        "soong-android",
+        "soong-cc",
+        "soong-genrule",
+    ],
+    srcs: [
+        "tdk.go",
+    ],
+    pluginFor: ["soong_build"],
+}
+
+libteec_go_defaults {
+    name: "libteec_bp_module"
+}
+
+libckteec_go_defaults {
+    name: "libckteec_bp_module"
+}
+
+libteec_sys_go_defaults {
+    name: "libteec_sys_bp_module"
+}
+
+tee_supplicant_go_defaults {
+    name: "tee_supplicant_bp_module"
+}
+
+tee_stest_go_defaults {
+    name: "tee_stest_bp_module"
+}
+
+cc_prebuilt_library_shared {
+    name: "libteec",
+    defaults: ["libteec_bp_module"],
+    strip: {
+        none:true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libckteec",
+    defaults: ["libckteec_bp_module"],
+    strip: {
+        none:true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libteec_sys",
+    defaults: ["libteec_sys_bp_module"],
+    strip: {
+        none:true,
+    },
+}
+
+cc_prebuilt_binary {
+    name: "tee-supplicant",
+    defaults: ["tee_supplicant_bp_module"],
+    strip: {
+        none:true,
+    },
+}
+
+cc_prebuilt_binary {
+    name: "tee_stest",
+    defaults: ["tee_stest_bp_module"],
+    strip: {
+        none:true,
+    },
+}
