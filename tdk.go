@@ -55,6 +55,11 @@ func libteec_DefaultsFactory() (android.Module) {
             p.Multilib.Lib32.Export_include_dirs = []string{"v3.18.0/ca_export_arm/include"}
             p.Multilib.Lib64.Srcs = []string{"v3.18.0/ca_export_arm64/lib_android/libteec.so"}
             p.Multilib.Lib64.Export_include_dirs = []string{"v3.18.0/ca_export_arm64/include"}
+        } else if (tdk_ver == "TDK44") {
+            p.Multilib.Lib32.Srcs = []string{"v4.4.0/ca_export_arm/lib_android/libteec.so"}
+            p.Multilib.Lib32.Export_include_dirs = []string{"v4.4.0/ca_export_arm/include"}
+            p.Multilib.Lib64.Srcs = []string{"v4.4.0/ca_export_arm64/lib_android/libteec.so"}
+            p.Multilib.Lib64.Export_include_dirs = []string{"v4.4.0/ca_export_arm64/include"}
         } else {
             fmt.Println("No libteec for unknown TDK version")
             p.Enabled = proptools.BoolPtr(false)
@@ -103,6 +108,11 @@ func libckteec_DefaultsFactory() (android.Module) {
             p.Multilib.Lib32.Export_include_dirs = []string{"v3.18.0/ca_export_arm/include"}
             p.Multilib.Lib64.Srcs = []string{"v3.18.0/ca_export_arm64/lib_android/libckteec.so"}
             p.Multilib.Lib64.Export_include_dirs = []string{"v3.18.0/ca_export_arm64/include"}
+        } else if (tdk_ver == "TDK44") {
+            p.Multilib.Lib32.Srcs = []string{"v4.4.0/ca_export_arm/lib_android/libckteec.so"}
+            p.Multilib.Lib32.Export_include_dirs = []string{"v4.4.0/ca_export_arm/include"}
+            p.Multilib.Lib64.Srcs = []string{"v4.4.0/ca_export_arm64/lib_android/libckteec.so"}
+            p.Multilib.Lib64.Export_include_dirs = []string{"v4.4.0/ca_export_arm64/include"}
         } else {
             fmt.Println("No libckteec for unknown TDK version")
             p.Enabled = proptools.BoolPtr(false)
@@ -152,6 +162,11 @@ func libteec_sys_DefaultsFactory() (android.Module) {
             p.Multilib.Lib32.Export_include_dirs = []string{"v3.18.0/ca_export_arm/include"}
             p.Multilib.Lib64.Srcs = []string{"v3.18.0/ca_export_arm64/lib_android/libteec_sys.so"}
             p.Multilib.Lib64.Export_include_dirs = []string{"v3.18.0/ca_export_arm64/include"}
+        } else if (tdk_ver == "TDK44") {
+            p.Multilib.Lib32.Srcs = []string{"v4.4.0/ca_export_arm/lib_android/libteec_sys.so"}
+            p.Multilib.Lib32.Export_include_dirs = []string{"v4.4.0/ca_export_arm/include"}
+            p.Multilib.Lib64.Srcs = []string{"v4.4.0/ca_export_arm64/lib_android/libteec_sys.so"}
+            p.Multilib.Lib64.Export_include_dirs = []string{"v4.4.0/ca_export_arm64/include"}
         } else {
             fmt.Println("No libteec_sys for unknown TDK version")
             p.Enabled = proptools.BoolPtr(false)
@@ -199,6 +214,10 @@ func tee_supplicant_DefaultsFactory() (android.Module) {
             p.Arch.Arm.Srcs = []string{"v3.18.0/ca_export_arm/bin_android/tee-supplicant"}
             p.Arch.Arm64.Srcs = []string{"v3.18.0/ca_export_arm64/bin_android/tee-supplicant"}
             p.Init_rc = []string{"v3.18.0/ca_export_arm/bin_android/tee-supplicant.rc"}
+        } else if (tdk_ver == "TDK44") {
+            p.Arch.Arm.Srcs = []string{"v4.4.0/ca_export_arm/bin_android/tee-supplicant"}
+            p.Arch.Arm64.Srcs = []string{"v4.4.0/ca_export_arm64/bin_android/tee-supplicant"}
+            p.Init_rc = []string{"v4.4.0/ca_export_arm/bin_android/tee-supplicant.rc"}
         } else {
             fmt.Println("No tee-supplicant for unknown TDK version")
             p.Enabled = proptools.BoolPtr(false)
@@ -255,6 +274,9 @@ func tee_stest_DefaultsFactory() (android.Module) {
             fmt.Println("tee_stest for", tdk_ver)
             p.Arch.Arm.Srcs = []string{"v3.18.0/ca_export_arm/bin_android/tee_stest"}
             p.Arch.Arm64.Srcs = []string{"v3.18.0/ca_export_arm64/bin_android/tee_stest"}
+        } else if (tdk_ver == "TDK44") {
+            p.Arch.Arm.Srcs = []string{"v4.4.0/ca_export_arm/bin_android/tee_stest"}
+            p.Arch.Arm64.Srcs = []string{"v4.4.0/ca_export_arm64/bin_android/tee_stest"}
         } else {
             fmt.Println("No tee_stest for unknown TDK version")
             p.Enabled = proptools.BoolPtr(false)
